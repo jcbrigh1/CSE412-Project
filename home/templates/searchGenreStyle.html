@@ -14,8 +14,8 @@
       }
       p {text-align: center;}
       span a {font-size: 18px;}
-      button {
-        background-color: #19543e; /* Green */
+      /*button {
+        background-color: #19543e; 
         border: none;
         color: white;
         padding: 40px 80px;
@@ -27,7 +27,7 @@
         margin-left: 5px;
         margin-right: 5px;
         margin-bottom: 20px;
-      }
+      }*/
       button:hover {
         background-color: #144533;
         color: white;
@@ -73,11 +73,44 @@
   background-color: #04AA6D;
   color: white;
 }
+form {
+  background-color: #256d53;
+  width: 55%;
+  height: 70px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 22.5%;
+  margin-right: 22.5%;
+}
+input {
+  all: unset;
+  font: 20px system-ui;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  padding: 6px 10px;
+}
+button {
+  all: unset;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+}
+
+svg {
+  color: #fff;
+  fill: currentColor;
+  width: 24px;
+  height: 24px;
+  padding: 10px;
+}
       </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>VideoGameDB</title>
+    <title>Seach</title>
     <link rel="stylesheet" href="style.css">
 
     <div class="topnav">
@@ -88,19 +121,17 @@
     </div> 
   </head>
   <body>
+    <h1 style="color: white; margin-top:50px; text-align: center; font-size: 60px; font-family: Arial, Helvetica, sans-serif;">Search By genre</h1>
+        <form role="search" id="form">
+            <input type="search" id="query" name="q"
+            placeholder="Search..."
+            aria-label="Search through site content">
+            <button>
+            <svg viewBox="0 0 1024 1024"><path class="path1" d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg>
+            </button>
+        </form>
+    <p style="color:#ddd; font-size: 25px; font-family: Arial, Helvetica, sans-serif;">This search will return all information relating to Video Games Genres named by your Seach</p>
     {% load static %}
-    <img src="{% static 'images/nintendoSwitch.png' %}" alt="person playing videogame"/>
-    <p style='font-size: 60px;color: white; font-family:Arial;'><span>Video Game Database Welcomes You</span></p>
-    <p style='font-size: 22px;color: white; font-family:Arial;'><span>Video Game Knowledge</span></p>
-    <p style='font-size: 22px;color: white; font-family:Arial;'><span>Find all the information on any topic of a video game</span></p>
-    <p><br></p>
-    <p style='font-size: 34px;color: white; font-family:Arial;'><b>Search</b><br><span><a>Find the game</a></span></p>
-    <div style="margin-bottom: 200px;" id="outer">
-      <form action="/" method="POST">
-        <button type="submit" name="selection" value="name" style="font-family: Arial;">Search by name</button> 
-        <button type="submit" name="selection" value="person" style="font-family: Arial;">Search by Person</button> 
-        <button type="submit" name="selection" value="genreStyle" style="font-family: Arial;">Search by genre/style</button> 
-      </form>
-    </div>
+    <img src="{% static 'images/fea-video-gam-controller.jpg' %}" alt="person playing videogame"/>
   </body>
 </html>
