@@ -55,7 +55,7 @@ ROOT_URLCONF = 'videoGameDB.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/home/templates/index.html'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
