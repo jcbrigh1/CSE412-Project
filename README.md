@@ -11,6 +11,6 @@ python3 manage.py runserver
 ```
 open up a browser window, default loading page is localhost and port 8000
 ```bash
-http:127.0.0.1:8000/home
+http:127.0.0.1:8000
 ```
 user manual https://docs.google.com/document/d/1bspXe0Lj1ViW5pJcDnar6c6gAFNbjh_r8tZSRdaKAs0/edit?usp=sharing
