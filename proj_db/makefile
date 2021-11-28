@@ -1,11 +1,17 @@
-MAKEFILE_PATH = /home/chinmay/Documents/ASU/fall21/cse412/proj
-ROOT = $(MAKEFILE_PATH)
-DBNAME = vgdb
+MAKEFILE_PATH = /home/chinmay/Documents/ASU/fall21/cse412/CSE412-Proj
+ROOT = $(MAKEFILE_PATH)/proj_db
+DBNAME = vgdb3
 
 
 setup_postgres:
+	@echo "creating folder"
+	mkdir $(DBNAME)
+	@echo "creating database"
+	initdb ./$(DBNAME)
+	pg_ctl -D ./$(DBNAME) -o '-k /tmp' start
+	createdb $(DBNAME) -p 8888 -h /tmp
 	@echo "creating tables"
-	psql -d $(DBNAME) -p 8888 -h /tmp -q -f create_tables.sql
+	psql -d $(DBNAME) -p 8888 -h /tmp -q -f '$(ROOT)/create_tables.sql'
 	@echo "importing data"
 	psql -d $(DBNAME) -p 8888 -h /tmp -q -c "COPY Videogame FROM '$(ROOT)/Videogames.csv' DELIMITER ',' CSV;"
 	psql -d $(DBNAME) -p 8888 -h /tmp -q -c "COPY Company FROM '$(ROOT)/Company.csv' DELIMITER ',' CSV;"
@@ -26,11 +32,7 @@ clean_postgres:
 
 nuke:
 	pg_ctl -D ./$(DBNAME) stop
-	rm -rf vgdb
-	mkdir vgdb
-	initdb ./$(DBNAME)
-	pg_ctl -D ./$(DBNAME) -o '-k /tmp' start
-	createdb $(DBNAME) -p 8888 -h /tmp
+	rm -rf $(DBNAME)
 
 
 .PHONY: setup_postgres
