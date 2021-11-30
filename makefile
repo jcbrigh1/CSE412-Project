@@ -1,5 +1,5 @@
-MAKEFILE_PATH = /home/chinmay/Documents/ASU/fall21/cse412/CSE412-Project
-ROOT = $(MAKEFILE_PATH)/proj_db
+#MAKEFILE_PATH= #no need for this with pwd
+ROOT = $(PWD)/proj_db
 DBNAME = vgdb3
 
 
