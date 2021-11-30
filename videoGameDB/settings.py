@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'vgdb3',
-        'USER': 'chinmay',
+        'USER': 'jasonbright', #user specific
         'PASSWORD':'',
         'HOST': '/tmp',
         'PORT': '8888'

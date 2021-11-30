@@ -65,12 +65,19 @@ def searchGenreStyle(request):
 
 def searchPerson(request):
     p_name = ''
-
     if 'q' in request.GET:
         p_name = request.GET['q']
 
-    with connection.cursor() as cursor:
-        cursor.execute("SELECT * from Person WHERE name = %s", [p_name])
+    with connection.cursor() as cursor: #v.Name, v.Genre, v.SRBRating
+        cursor.execute("""
+        SELECT *
+        FROM Person as p, Videogame as v, Member as m, Creators, Crew 
+        WHERE p.ID = m.ID AND
+        m.CRID = crew.CRID AND
+        crew.CRID = creators.CRID AND
+        creators.VID = v.VID AND
+        p.Name = %s
+        """, [p_name])
         res = dictfetchall(cursor)
 
     if len(res) > 0:
